@@ -1,0 +1,40 @@
+<div class="container">
+  
+  <div class="progreso">
+    <nz-progress [nzPercent]="progress" [nzWidth]="400" nzType="circle"></nz-progress>
+    <h2 *ngIf="progress < 100">{{speed |number}} Mbps</h2>
+    <h2 *ngIf="progress == 100">{{getAvgSpeed() |number}} Mbps</h2>
+    <div class="bar" *ngIf="progress < 100">
+      <span>0Mbs</span>
+      <nz-progress [nzPercent]="speed"  [nzShowInfo]="false" [nzStrokeColor]="{ '0%': '#ee0000', '100%': '#87d068' }"></nz-progress>
+      <span>100Mbs</span>
+    </div>
+
+
+    <div style="margin-bottom: 64px;"></div>
+
+    <h4>Promedio: <span class="sp">{{getAvgSpeed()|number}} Mbps</span></h4>
+    <div class="bar">
+      <span>0Mbs</span>
+      <nz-progress [nzPercent]="getAvgSpeed()"  [nzShowInfo]="false" [nzStrokeColor]="{ '0%': '#ee0000', '100%': '#87d068' }"></nz-progress>
+      <span>100Mbs</span>
+    </div>
+
+    <h4>Minimo: <span class="sp">{{minSp()|number}} Mbps</span></h4>
+    <div class="bar">
+      <span>0Mbs</span>
+      <nz-progress [nzPercent]="minSp()"  [nzShowInfo]="false" [nzStrokeColor]="{ '0%': '#ee0000', '100%': '#87d068' }"></nz-progress>
+      <span>100Mbs</span>
+    </div>
+
+    <h4>Max: <span class="sp">{{maxSp()|number}} Mbps</span></h4>
+    <div class="bar">
+      <span>0Mbs</span>
+      <nz-progress [nzPercent]="maxSp()"  [nzShowInfo]="false" [nzStrokeColor]="{ '0%': '#ee0000', '100%': '#87d068' }"></nz-progress>
+      <span>100Mbs</span>
+    </div>
+
+
+  </div>
+  
+</div>
